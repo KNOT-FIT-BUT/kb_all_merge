@@ -1,0 +1,9 @@
+[submodule "tools/kb_aliases_cleaner"]
+	path = tools/kb_aliases_cleaner
+	url = https://github.com/KNOT-FIT-BUT/kb_aliases_cleaner.git
+[submodule "kb_resources/kb_cs_wikipedia"]
+	path = kb_resources/kb_cs_wikipedia
+	url = https://github.com/KNOT-FIT-BUT/entity_kb_czech3.git
+[submodule "kb_resources/kb_all_wikidata"]
+	path = kb_resources/kb_all_wikidata
+	url = https://github.com/KNOT-FIT-BUT/kb_all_wikidata.git
