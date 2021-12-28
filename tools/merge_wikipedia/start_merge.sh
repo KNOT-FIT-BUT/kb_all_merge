@@ -14,7 +14,7 @@ wikipedia_KB='http://knot.fit.vutbr.cz/NAKI_CPK/NER_ML_inputs/KB/KB_cs/new/KB.ts
 
 prefix_artist='a'
 prefix_group='g'
-prefix_location='l'
+prefix_geographical='l'
 prefix_person='p'
 
 # list dump names
@@ -56,7 +56,7 @@ fi
 wikidata_person="$wikidata2"/tsv_extracted_from_wikidata/"$dump_name"/"`echo "$dump_name" | sed 's/-all.json//'`"-cs-person.tsv
 wikidata_arist="$wikidata2"/tsv_extracted_from_wikidata/"$dump_name"/"`echo "$dump_name" | sed 's/-all.json//'`"-cs-artist.tsv
 wikidata_group="$wikidata2"/tsv_extracted_from_wikidata/"$dump_name"/"`echo "$dump_name" | sed 's/-all.json//'`"-cs-group.tsv
-wikidata_location="$wikidata2"/tsv_extracted_from_wikidata/"$dump_name"/"`echo "$dump_name" | sed 's/-all.json//'`"-cs-location.tsv
+wikidata_geographical="$wikidata2"/tsv_extracted_from_wikidata/"$dump_name"/"`echo "$dump_name" | sed 's/-all.json//'`"-cs-geographical.tsv
 
 # setup
 cf="$pwd" # save location
@@ -69,7 +69,7 @@ curl -o KB.tsv "$wikipedia_KB" # get KB
 awk -F'\t' '{ if($2=="person") print }' KB.tsv > person/WIKIPEDIA
 awk -F'\t' '{ if($2=="artist") print }' KB.tsv > artist/WIKIPEDIA
 awk -F'\t' '{ if($2=="person+group") print }' KB.tsv > group/WIKIPEDIA
-awk -F'\t' '{ if($2=="geographical") print }' KB.tsv > location/WIKIPEDIA
+awk -F'\t' '{ if($2=="geographical") print }' KB.tsv > geographical/WIKIPEDIA
 
 rm KB.tsv # clean the KB
 
@@ -77,10 +77,10 @@ rm KB.tsv # clean the KB
 cp "$wikidata_person" "$project_folder"/person/WIKIDATA2
 cp "$wikidata_arist" "$project_folder"/artist/WIKIDATA2
 cp "$wikidata_group" "$project_folder"/group/WIKIDATA2
-cp "$wikidata_location" "$project_folder"/location/WIKIDATA2
+cp "$wikidata_geographical" "$project_folder"/geographical/WIKIDATA2
 
 # merge
-for type in artist group location person; do
+for type in artist group geographical person; do
 	cd "$project_folder/$type/"
 	echo "Starting to merge $type KB"
 	python3 "$kb_compare" \

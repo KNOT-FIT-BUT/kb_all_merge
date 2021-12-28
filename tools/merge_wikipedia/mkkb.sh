@@ -8,7 +8,7 @@
 project_folder="$(readlink -f $0 | xargs -I{} dirname {})"
 artist_file="$project_folder"/output/artist_merged.tsv
 group_file="$project_folder"/output/group_merged.tsv
-location_file="$project_folder"/output/location_merged.tsv
+geographical_file="$project_folder"/output/geographical_merged.tsv
 person_file="$project_folder"/output/person_merged.tsv
 
 output_file="$project_folder"/output/KB.tsv
@@ -23,6 +23,6 @@ fi
 echo 'Merging output files into KB'
 
 echo "VERSION=cs_wd+wp_$(date '+%Y%m%d_%H%M%S')" > "$output_file"
-cat "$project_folder"/HEAD "$person_file" "$group_file" "$artist_file" "$location_file" \
+cat "$project_folder"/HEAD "$person_file" "$group_file" "$artist_file" "$geographical_file" \
 >> "$output_file"
 
