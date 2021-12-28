@@ -7,3 +7,6 @@
 [submodule "kb_resources/kb_all_wikidata"]
 	path = kb_resources/kb_all_wikidata
 	url = https://github.com/KNOT-FIT-BUT/kb_all_wikidata.git
+[submodule "tools/kb_tools"]
+	path = tools/kb_tools
+	url = git@github.com:KNOT-FIT-BUT/kb_tools.git
