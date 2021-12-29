@@ -9,7 +9,7 @@
 # constants
 project_folder="$(readlink -f $0 | xargs -I{} dirname {})"
 wikidata2="$project_folder"/../../kb_resources/kb_all_wikidata
-kb_compare=="$project_folder"/../kb_tools/kb_compare.py
+kb_compare="$project_folder"/../kb_tools/kb_compare.py
 wikipedia_KB='http://knot.fit.vutbr.cz/NAKI_CPK/NER_ML_inputs/KB/KB_cs/new/KB.tsv'
 
 prefix_artist='a'
